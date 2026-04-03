@@ -1,0 +1,521 @@
+// =============================================================================
+// Flavio Fusuma — Design Token Variables
+// =============================================================================
+// All CSS custom properties generated from the W3C DTCG design tokens.
+// This file is the single source of truth for all design values in SCSS.
+//
+// Token layers:
+//   1. Global primitives  — raw color scales, type sizes, spacing values
+//   2. Semantic aliases    — meaningful names mapped to primitives
+//   3. Theme overrides     — dark mode remaps semantic tokens
+//
+// Usage:
+//   color: var(--color-text-primary);
+//   font-size: var(--font-size-base);
+//   padding: var(--space-4);
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// 1. Color Primitives
+// -----------------------------------------------------------------------------
+
+:root {
+  // Blue scale (primary brand)
+  --color-blue-50: #EFF6FF;
+  --color-blue-100: #DBEAFE;
+  --color-blue-200: #BFDBFE;
+  --color-blue-300: #93C5FD;
+  --color-blue-400: #60A5FA;
+  --color-blue-500: #3B82F6;
+  --color-blue-600: #2563EB;
+  --color-blue-700: #1D4ED8;
+  --color-blue-800: #1E3A5F;
+  --color-blue-900: #1E3050;
+  --color-blue-950: #172340;
+
+  // Amber scale (accent)
+  --color-amber-50: #FFFBEB;
+  --color-amber-100: #FEF3C7;
+  --color-amber-200: #FDE68A;
+  --color-amber-300: #FCD34D;
+  --color-amber-400: #FBBF24;
+  --color-amber-500: #F59E0B;
+  --color-amber-600: #D97706;
+  --color-amber-700: #B45309;
+  --color-amber-800: #92400E;
+  --color-amber-900: #78350F;
+  --color-amber-950: #451A03;
+
+  // Neutral scale
+  --color-neutral-0: #FFFFFF;
+  --color-neutral-50: #F8FAFC;
+  --color-neutral-100: #F1F5F9;
+  --color-neutral-200: #E2E8F0;
+  --color-neutral-300: #CBD5E1;
+  --color-neutral-400: #94A3B8;
+  --color-neutral-500: #64748B;
+  --color-neutral-600: #475569;
+  --color-neutral-700: #334155;
+  --color-neutral-800: #1E293B;
+  --color-neutral-900: #0F172A;
+  --color-neutral-950: #020617;
+
+  // Green scale (success)
+  --color-green-50: #F0FDF4;
+  --color-green-100: #DCFCE7;
+  --color-green-200: #BBF7D0;
+  --color-green-300: #86EFAC;
+  --color-green-400: #4ADE80;
+  --color-green-500: #22C55E;
+  --color-green-600: #16A34A;
+  --color-green-700: #15803D;
+  --color-green-800: #166534;
+  --color-green-900: #14532D;
+  --color-green-950: #052E16;
+
+  // Red scale (error)
+  --color-red-50: #FEF2F2;
+  --color-red-100: #FEE2E2;
+  --color-red-200: #FECACA;
+  --color-red-300: #FCA5A5;
+  --color-red-400: #F87171;
+  --color-red-500: #EF4444;
+  --color-red-600: #DC2626;
+  --color-red-700: #B91C1C;
+  --color-red-800: #991B1B;
+  --color-red-900: #7F1D1D;
+  --color-red-950: #450A0A;
+
+  // Teal scale (extended)
+  --color-teal-50: #F0FDFA;
+  --color-teal-100: #CCFBF1;
+  --color-teal-200: #99F6E4;
+  --color-teal-300: #5EEAD4;
+  --color-teal-400: #2DD4BF;
+  --color-teal-500: #14B8A6;
+  --color-teal-600: #0D9488;
+  --color-teal-700: #0F766E;
+  --color-teal-800: #115E59;
+  --color-teal-900: #134E4A;
+  --color-teal-950: #042F2E;
+
+  // Indigo scale (extended)
+  --color-indigo-50: #EEF2FF;
+  --color-indigo-100: #E0E7FF;
+  --color-indigo-200: #C7D2FE;
+  --color-indigo-300: #A5B4FC;
+  --color-indigo-400: #818CF8;
+  --color-indigo-500: #6366F1;
+  --color-indigo-600: #4F46E5;
+  --color-indigo-700: #4338CA;
+  --color-indigo-800: #3730A3;
+  --color-indigo-900: #312E81;
+  --color-indigo-950: #1E1B4B;
+
+  // Rose scale (extended)
+  --color-rose-50: #FFF1F2;
+  --color-rose-100: #FFE4E6;
+  --color-rose-200: #FECDD3;
+  --color-rose-300: #FDA4AF;
+  --color-rose-400: #FB7185;
+  --color-rose-500: #F43F5E;
+  --color-rose-600: #E11D48;
+  --color-rose-700: #BE123C;
+  --color-rose-800: #9F1239;
+  --color-rose-900: #881337;
+  --color-rose-950: #4C0519;
+
+  // Violet scale (extended)
+  --color-violet-50: #F5F3FF;
+  --color-violet-100: #EDE9FE;
+  --color-violet-200: #DDD6FE;
+  --color-violet-300: #C4B5FD;
+  --color-violet-400: #A78BFA;
+  --color-violet-500: #8B5CF6;
+  --color-violet-600: #7C3AED;
+  --color-violet-700: #6D28D9;
+  --color-violet-800: #5B21B6;
+  --color-violet-900: #4C1D95;
+  --color-violet-950: #2E1065;
+
+  // Emerald scale (extended)
+  --color-emerald-50: #ECFDF5;
+  --color-emerald-100: #D1FAE5;
+  --color-emerald-200: #A7F3D0;
+  --color-emerald-300: #6EE7B7;
+  --color-emerald-400: #34D399;
+  --color-emerald-500: #10B981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+  --color-emerald-800: #065F46;
+  --color-emerald-900: #064E3B;
+  --color-emerald-950: #022C22;
+
+  // Cyan scale (extended)
+  --color-cyan-50: #ECFEFF;
+  --color-cyan-100: #CFFAFE;
+  --color-cyan-200: #A5F3FC;
+  --color-cyan-300: #67E8F9;
+  --color-cyan-400: #22D3EE;
+  --color-cyan-500: #06B6D4;
+  --color-cyan-600: #0891B2;
+  --color-cyan-700: #0E7490;
+  --color-cyan-800: #155E75;
+  --color-cyan-900: #164E63;
+  --color-cyan-950: #083344;
+
+  // Absolute colors
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-transparent: transparent;
+
+  // ---------------------------------------------------------------------------
+  // 2. Semantic Color Tokens (Light Theme — Default)
+  // ---------------------------------------------------------------------------
+
+  // Background
+  --color-bg-primary: var(--color-neutral-0);
+  --color-bg-secondary: var(--color-neutral-50);
+  --color-bg-tertiary: var(--color-neutral-100);
+  --color-bg-inverse: var(--color-neutral-900);
+  --color-bg-brand: var(--color-blue-800);
+  --color-bg-brand-subtle: var(--color-blue-50);
+  --color-bg-brand-muted: var(--color-blue-100);
+  --color-bg-accent: var(--color-amber-500);
+  --color-bg-accent-subtle: var(--color-amber-50);
+  --color-bg-accent-muted: var(--color-amber-100);
+  --color-bg-success: var(--color-green-50);
+  --color-bg-warning: var(--color-amber-50);
+  --color-bg-error: var(--color-red-50);
+  --color-bg-info: var(--color-blue-50);
+  --color-bg-disabled: var(--color-neutral-100);
+  --color-bg-overlay: #0F172A80;
+  --color-bg-elevated: var(--color-neutral-0);
+  --color-bg-sunken: var(--color-neutral-50);
+
+  // Text
+  --color-text-primary: var(--color-neutral-900);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-text-tertiary: var(--color-neutral-400);
+  --color-text-inverse: var(--color-neutral-0);
+  --color-text-brand: var(--color-blue-800);
+  --color-text-accent: var(--color-amber-600);
+  --color-text-link: var(--color-blue-600);
+  --color-text-link-hover: var(--color-blue-800);
+  --color-text-link-visited: var(--color-violet-600);
+  --color-text-success: var(--color-green-700);
+  --color-text-warning: var(--color-amber-700);
+  --color-text-error: var(--color-red-700);
+  --color-text-info: var(--color-blue-700);
+  --color-text-disabled: var(--color-neutral-300);
+  --color-text-on-brand: var(--color-neutral-0);
+  --color-text-on-accent: var(--color-neutral-950);
+
+  // Border
+  --color-border-primary: var(--color-neutral-200);
+  --color-border-secondary: var(--color-neutral-300);
+  --color-border-tertiary: var(--color-neutral-100);
+  --color-border-brand: var(--color-blue-800);
+  --color-border-accent: var(--color-amber-500);
+  --color-border-focus: var(--color-blue-500);
+  --color-border-success: var(--color-green-500);
+  --color-border-warning: var(--color-amber-500);
+  --color-border-error: var(--color-red-500);
+  --color-border-info: var(--color-blue-500);
+  --color-border-disabled: var(--color-neutral-200);
+  --color-border-inverse: var(--color-neutral-700);
+
+  // Icon
+  --color-icon-primary: var(--color-neutral-700);
+  --color-icon-secondary: var(--color-neutral-400);
+  --color-icon-brand: var(--color-blue-800);
+  --color-icon-accent: var(--color-amber-500);
+  --color-icon-inverse: var(--color-neutral-0);
+  --color-icon-success: var(--color-green-500);
+  --color-icon-warning: var(--color-amber-500);
+  --color-icon-error: var(--color-red-500);
+  --color-icon-info: var(--color-blue-500);
+  --color-icon-disabled: var(--color-neutral-300);
+
+  // Interactive
+  --color-interactive-primary: var(--color-blue-800);
+  --color-interactive-primary-hover: var(--color-blue-900);
+  --color-interactive-primary-active: var(--color-blue-950);
+  --color-interactive-secondary: var(--color-neutral-100);
+  --color-interactive-secondary-hover: var(--color-neutral-200);
+  --color-interactive-secondary-active: var(--color-neutral-300);
+  --color-interactive-accent: var(--color-amber-500);
+  --color-interactive-accent-hover: var(--color-amber-600);
+  --color-interactive-accent-active: var(--color-amber-700);
+  --color-interactive-destructive: var(--color-red-600);
+  --color-interactive-destructive-hover: var(--color-red-700);
+  --color-interactive-destructive-active: var(--color-red-800);
+
+  // ---------------------------------------------------------------------------
+  // 3. Typography Variables
+  // ---------------------------------------------------------------------------
+
+  // Font families
+  --font-family-sans: 'Inter', ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+  // Font sizes
+  --font-size-2xs: 0.625rem;   // 10px
+  --font-size-xs: 0.75rem;     // 12px
+  --font-size-sm: 0.875rem;    // 14px
+  --font-size-base: 1rem;      // 16px
+  --font-size-lg: 1.125rem;    // 18px
+  --font-size-xl: 1.25rem;     // 20px
+  --font-size-2xl: 1.5rem;     // 24px
+  --font-size-3xl: 1.875rem;   // 30px
+  --font-size-4xl: 2.25rem;    // 36px
+  --font-size-5xl: 3rem;       // 48px
+  --font-size-6xl: 3.75rem;    // 60px
+  --font-size-7xl: 4.5rem;     // 72px
+  --font-size-8xl: 6rem;       // 96px
+  --font-size-9xl: 8rem;       // 128px
+
+  // Font weights
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  // Line heights
+  --line-height-none: 1;
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  // Letter spacing
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+
+  // ---------------------------------------------------------------------------
+  // 4. Spacing Variables (8px base, 4px sub-grid)
+  // ---------------------------------------------------------------------------
+
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+  --space-40: 160px;
+  --space-48: 192px;
+  --space-64: 256px;
+  --space-80: 320px;
+  --space-96: 384px;
+
+  // ---------------------------------------------------------------------------
+  // 5. Border Variables
+  // ---------------------------------------------------------------------------
+
+  // Border radius
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-base: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  // Border width
+  --border-width-0: 0px;
+  --border-width-1: 1px;
+  --border-width-2: 2px;
+  --border-width-4: 4px;
+  --border-width-8: 8px;
+
+  // ---------------------------------------------------------------------------
+  // 6. Shadow Variables
+  // ---------------------------------------------------------------------------
+
+  --shadow-none: 0 0 0 0 transparent;
+  --shadow-elevation-1:
+    0 1px 2px 0 #0F172A0D,
+    0 1px 3px 0 #0F172A0A;
+  --shadow-elevation-2:
+    0 2px 4px -1px #0F172A0D,
+    0 4px 6px -1px #0F172A0A;
+  --shadow-elevation-3:
+    0 4px 6px -2px #0F172A0D,
+    0 10px 15px -3px #0F172A0A;
+  --shadow-elevation-4:
+    0 10px 15px -3px #0F172A0D,
+    0 20px 25px -5px #0F172A0A;
+  --shadow-elevation-5:
+    0 20px 25px -5px #0F172A14,
+    0 40px 50px -12px #0F172A0A;
+
+  // ---------------------------------------------------------------------------
+  // 7. Motion Variables
+  // ---------------------------------------------------------------------------
+
+  // Durations
+  --duration-instant: 0ms;
+  --duration-fastest: 50ms;
+  --duration-faster: 100ms;
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+  --duration-slower: 400ms;
+  --duration-slowest: 500ms;
+  --duration-deliberate: 700ms;
+
+  // Easing curves
+  --ease-linear: cubic-bezier(0, 0, 1, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring: cubic-bezier(0.22, 1.2, 0.36, 1);
+
+  // ---------------------------------------------------------------------------
+  // 8. Breakpoint Variables
+  // ---------------------------------------------------------------------------
+  // Note: CSS custom properties cannot be used in @media queries.
+  // These are documented here for reference; use the SCSS variables below.
+
+  --breakpoint-sm: 375px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1440px;
+
+  // ---------------------------------------------------------------------------
+  // 9. Z-Index Scale
+  // ---------------------------------------------------------------------------
+
+  --z-index-hide: -1;
+  --z-index-base: 0;
+  --z-index-raised: 1;
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1100;
+  --z-index-overlay: 1200;
+  --z-index-modal: 1300;
+  --z-index-popover: 1400;
+  --z-index-toast: 1500;
+  --z-index-tooltip: 1600;
+  --z-index-max: 9999;
+
+  // ---------------------------------------------------------------------------
+  // 10. Opacity Scale
+  // ---------------------------------------------------------------------------
+
+  --opacity-0: 0;
+  --opacity-5: 0.05;
+  --opacity-10: 0.1;
+  --opacity-15: 0.15;
+  --opacity-20: 0.2;
+  --opacity-25: 0.25;
+  --opacity-30: 0.3;
+  --opacity-40: 0.4;
+  --opacity-50: 0.5;
+  --opacity-60: 0.6;
+  --opacity-70: 0.7;
+  --opacity-75: 0.75;
+  --opacity-80: 0.8;
+  --opacity-85: 0.85;
+  --opacity-90: 0.9;
+  --opacity-95: 0.95;
+  --opacity-100: 1;
+}
+
+// =============================================================================
+// SCSS Variables (for use in @media queries, loops, and Sass logic)
+// =============================================================================
+
+// Breakpoints map
+$breakpoints: (
+  'sm': 375px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1440px,
+) !default;
+
+// Container max-widths per breakpoint
+$container-max-widths: (
+  'sm': 100%,
+  'md': 720px,
+  'lg': 960px,
+  'xl': 1280px,
+) !default;
+
+// Grid
+$grid-columns: 12 !default;
+$grid-gutter: 24px !default;
+
+// Spacing scale (for SCSS loops)
+$spacing-scale: (
+  0: 0px,
+  1: 4px,
+  2: 8px,
+  3: 12px,
+  4: 16px,
+  5: 20px,
+  6: 24px,
+  8: 32px,
+  10: 40px,
+  12: 48px,
+  16: 64px,
+  20: 80px,
+  24: 96px,
+  32: 128px,
+  40: 160px,
+  48: 192px,
+  64: 256px,
+  80: 320px,
+  96: 384px,
+) !default;
+
+// Z-index map
+$z-index: (
+  'hide': -1,
+  'base': 0,
+  'raised': 1,
+  'dropdown': 1000,
+  'sticky': 1100,
+  'overlay': 1200,
+  'modal': 1300,
+  'popover': 1400,
+  'toast': 1500,
+  'tooltip': 1600,
+  'max': 9999,
+) !default;
+
+// =============================================================================
+// Mixin: Media Queries
+// =============================================================================
+
+/// Generate a min-width media query for the given breakpoint.
+/// @param {String} $name - Breakpoint name (sm, md, lg, xl)
+@mixin breakpoint($name) {
+  @if map-has-key($breakpoints, $name) {
+    @media (min-width: map-get($breakpoints, $name)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint `#{$name}` not found in $breakpoints map.";
+  }
+}

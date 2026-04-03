@@ -1,0 +1,238 @@
+// =============================================================================
+// Flavio Fusuma — Color Utility Classes
+// =============================================================================
+// Utility classes for text, background, and border colors.
+// Includes semantic color mappings and dark mode overrides.
+//
+// Naming convention:
+//   .text-{semantic}     — color
+//   .bg-{semantic}       — background-color
+//   .border-{semantic}   — border-color
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Semantic Text Color Utilities
+// -----------------------------------------------------------------------------
+
+.text-primary      { color: var(--color-text-primary); }
+.text-secondary    { color: var(--color-text-secondary); }
+.text-tertiary     { color: var(--color-text-tertiary); }
+.text-inverse      { color: var(--color-text-inverse); }
+.text-brand        { color: var(--color-text-brand); }
+.text-accent       { color: var(--color-text-accent); }
+.text-link         { color: var(--color-text-link); }
+.text-link-hover   { color: var(--color-text-link-hover); }
+.text-link-visited { color: var(--color-text-link-visited); }
+.text-success      { color: var(--color-text-success); }
+.text-warning      { color: var(--color-text-warning); }
+.text-error        { color: var(--color-text-error); }
+.text-info         { color: var(--color-text-info); }
+.text-disabled     { color: var(--color-text-disabled); }
+.text-on-brand     { color: var(--color-text-on-brand); }
+.text-on-accent    { color: var(--color-text-on-accent); }
+
+// -----------------------------------------------------------------------------
+// Semantic Background Color Utilities
+// -----------------------------------------------------------------------------
+
+.bg-primary       { background-color: var(--color-bg-primary); }
+.bg-secondary     { background-color: var(--color-bg-secondary); }
+.bg-tertiary      { background-color: var(--color-bg-tertiary); }
+.bg-inverse       { background-color: var(--color-bg-inverse); }
+.bg-brand         { background-color: var(--color-bg-brand); }
+.bg-brand-subtle  { background-color: var(--color-bg-brand-subtle); }
+.bg-brand-muted   { background-color: var(--color-bg-brand-muted); }
+.bg-accent        { background-color: var(--color-bg-accent); }
+.bg-accent-subtle { background-color: var(--color-bg-accent-subtle); }
+.bg-accent-muted  { background-color: var(--color-bg-accent-muted); }
+.bg-success       { background-color: var(--color-bg-success); }
+.bg-warning       { background-color: var(--color-bg-warning); }
+.bg-error         { background-color: var(--color-bg-error); }
+.bg-info          { background-color: var(--color-bg-info); }
+.bg-disabled      { background-color: var(--color-bg-disabled); }
+.bg-overlay       { background-color: var(--color-bg-overlay); }
+.bg-elevated      { background-color: var(--color-bg-elevated); }
+.bg-sunken        { background-color: var(--color-bg-sunken); }
+
+// -----------------------------------------------------------------------------
+// Semantic Border Color Utilities
+// -----------------------------------------------------------------------------
+
+.border-primary    { border-color: var(--color-border-primary); }
+.border-secondary  { border-color: var(--color-border-secondary); }
+.border-tertiary   { border-color: var(--color-border-tertiary); }
+.border-brand      { border-color: var(--color-border-brand); }
+.border-accent     { border-color: var(--color-border-accent); }
+.border-focus      { border-color: var(--color-border-focus); }
+.border-success    { border-color: var(--color-border-success); }
+.border-warning    { border-color: var(--color-border-warning); }
+.border-error      { border-color: var(--color-border-error); }
+.border-info       { border-color: var(--color-border-info); }
+.border-disabled   { border-color: var(--color-border-disabled); }
+.border-inverse    { border-color: var(--color-border-inverse); }
+
+// -----------------------------------------------------------------------------
+// Primitive Color Scale Utilities
+// -----------------------------------------------------------------------------
+// These map directly to the global color primitives for cases where
+// semantic tokens are insufficient (data visualization, illustrations).
+
+// Blue scale
+$blue-scale: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950);
+
+@each $step in $blue-scale {
+  .text-blue-#{$step}   { color: var(--color-blue-#{$step}); }
+  .bg-blue-#{$step}     { background-color: var(--color-blue-#{$step}); }
+  .border-blue-#{$step} { border-color: var(--color-blue-#{$step}); }
+}
+
+// Amber scale
+@each $step in $blue-scale {
+  .text-amber-#{$step}   { color: var(--color-amber-#{$step}); }
+  .bg-amber-#{$step}     { background-color: var(--color-amber-#{$step}); }
+  .border-amber-#{$step} { border-color: var(--color-amber-#{$step}); }
+}
+
+// Neutral scale
+$neutral-scale: (0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950);
+
+@each $step in $neutral-scale {
+  .text-neutral-#{$step}   { color: var(--color-neutral-#{$step}); }
+  .bg-neutral-#{$step}     { background-color: var(--color-neutral-#{$step}); }
+  .border-neutral-#{$step} { border-color: var(--color-neutral-#{$step}); }
+}
+
+// Green scale
+@each $step in $blue-scale {
+  .text-green-#{$step}   { color: var(--color-green-#{$step}); }
+  .bg-green-#{$step}     { background-color: var(--color-green-#{$step}); }
+  .border-green-#{$step} { border-color: var(--color-green-#{$step}); }
+}
+
+// Red scale
+@each $step in $blue-scale {
+  .text-red-#{$step}   { color: var(--color-red-#{$step}); }
+  .bg-red-#{$step}     { background-color: var(--color-red-#{$step}); }
+  .border-red-#{$step} { border-color: var(--color-red-#{$step}); }
+}
+
+// Extended palette scales
+$extended-palettes: (teal, indigo, rose, violet, emerald, cyan);
+
+@each $palette in $extended-palettes {
+  @each $step in $blue-scale {
+    .text-#{$palette}-#{$step}   { color: var(--color-#{$palette}-#{$step}); }
+    .bg-#{$palette}-#{$step}     { background-color: var(--color-#{$palette}-#{$step}); }
+    .border-#{$palette}-#{$step} { border-color: var(--color-#{$palette}-#{$step}); }
+  }
+}
+
+// Absolute colors
+.text-white   { color: var(--color-white); }
+.text-black   { color: var(--color-black); }
+.bg-white     { background-color: var(--color-white); }
+.bg-black     { background-color: var(--color-black); }
+.bg-transparent { background-color: transparent; }
+
+// -----------------------------------------------------------------------------
+// Dark Mode Overrides
+// -----------------------------------------------------------------------------
+// Applied via [data-theme="dark"] on a parent element (typically <html>).
+// Remaps semantic custom properties so all utility classes update automatically.
+
+[data-theme="dark"] {
+  // Background
+  --color-bg-primary: var(--color-neutral-900);
+  --color-bg-secondary: var(--color-neutral-800);
+  --color-bg-tertiary: var(--color-neutral-700);
+  --color-bg-inverse: var(--color-neutral-50);
+  --color-bg-brand: var(--color-blue-800);
+  --color-bg-brand-subtle: #1E3A5F26;
+  --color-bg-brand-muted: #1E3A5F40;
+  --color-bg-accent: var(--color-amber-500);
+  --color-bg-accent-subtle: #F59E0B1A;
+  --color-bg-accent-muted: #F59E0B33;
+  --color-bg-success: #22C55E1A;
+  --color-bg-warning: #F59E0B1A;
+  --color-bg-error: #EF44441A;
+  --color-bg-info: #3B82F61A;
+  --color-bg-disabled: var(--color-neutral-800);
+  --color-bg-overlay: #000000B3;
+  --color-bg-elevated: var(--color-neutral-800);
+  --color-bg-sunken: var(--color-neutral-950);
+
+  // Text
+  --color-text-primary: var(--color-neutral-50);
+  --color-text-secondary: var(--color-neutral-400);
+  --color-text-tertiary: var(--color-neutral-500);
+  --color-text-inverse: var(--color-neutral-900);
+  --color-text-brand: var(--color-blue-300);
+  --color-text-accent: var(--color-amber-400);
+  --color-text-link: var(--color-blue-400);
+  --color-text-link-hover: var(--color-blue-300);
+  --color-text-link-visited: var(--color-violet-400);
+  --color-text-success: var(--color-green-400);
+  --color-text-warning: var(--color-amber-400);
+  --color-text-error: var(--color-red-400);
+  --color-text-info: var(--color-blue-400);
+  --color-text-disabled: var(--color-neutral-600);
+  --color-text-on-brand: var(--color-neutral-0);
+  --color-text-on-accent: var(--color-neutral-950);
+
+  // Border
+  --color-border-primary: var(--color-neutral-700);
+  --color-border-secondary: var(--color-neutral-600);
+  --color-border-tertiary: var(--color-neutral-800);
+  --color-border-brand: var(--color-blue-400);
+  --color-border-accent: var(--color-amber-500);
+  --color-border-focus: var(--color-blue-400);
+  --color-border-success: var(--color-green-400);
+  --color-border-warning: var(--color-amber-400);
+  --color-border-error: var(--color-red-400);
+  --color-border-info: var(--color-blue-400);
+  --color-border-disabled: var(--color-neutral-700);
+  --color-border-inverse: var(--color-neutral-300);
+
+  // Icon
+  --color-icon-primary: var(--color-neutral-300);
+  --color-icon-secondary: var(--color-neutral-500);
+  --color-icon-brand: var(--color-blue-400);
+  --color-icon-accent: var(--color-amber-400);
+  --color-icon-inverse: var(--color-neutral-900);
+  --color-icon-success: var(--color-green-400);
+  --color-icon-warning: var(--color-amber-400);
+  --color-icon-error: var(--color-red-400);
+  --color-icon-info: var(--color-blue-400);
+  --color-icon-disabled: var(--color-neutral-600);
+
+  // Interactive
+  --color-interactive-primary: var(--color-blue-500);
+  --color-interactive-primary-hover: var(--color-blue-400);
+  --color-interactive-primary-active: var(--color-blue-300);
+  --color-interactive-secondary: var(--color-neutral-800);
+  --color-interactive-secondary-hover: var(--color-neutral-700);
+  --color-interactive-secondary-active: var(--color-neutral-600);
+  --color-interactive-accent: var(--color-amber-500);
+  --color-interactive-accent-hover: var(--color-amber-400);
+  --color-interactive-accent-active: var(--color-amber-300);
+  --color-interactive-destructive: var(--color-red-500);
+  --color-interactive-destructive-hover: var(--color-red-400);
+  --color-interactive-destructive-active: var(--color-red-300);
+
+  // Shadows (darker for dark mode)
+  --shadow-elevation-1:
+    0 1px 2px 0 #00000033,
+    0 1px 3px 0 #00000026;
+  --shadow-elevation-2:
+    0 2px 4px -1px #00000033,
+    0 4px 6px -1px #00000026;
+  --shadow-elevation-3:
+    0 4px 6px -2px #00000040,
+    0 10px 15px -3px #00000033;
+  --shadow-elevation-4:
+    0 10px 15px -3px #00000040,
+    0 20px 25px -5px #00000033;
+  --shadow-elevation-5:
+    0 20px 25px -5px #0000004D,
+    0 40px 50px -12px #00000040;
+}

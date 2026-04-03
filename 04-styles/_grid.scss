@@ -1,0 +1,257 @@
+// =============================================================================
+// Flavio Fusuma — Grid System
+// =============================================================================
+// A 12-column CSS Grid system with responsive container, column spans, and
+// breakpoint-specific overrides.
+//
+// Grid specifications:
+//   Columns:       12
+//   Gutter:        24px (var(--space-6))
+//   Base unit:     8px
+//   Breakpoints:   sm (375px), md (768px), lg (1024px), xl (1440px)
+//
+// Usage:
+//   <div class="container">
+//     <div class="grid gap-6">
+//       <div class="col-12 col-md-8">Main content</div>
+//       <div class="col-12 col-md-4">Sidebar</div>
+//     </div>
+//   </div>
+// =============================================================================
+
+@use 'variables' as *;
+
+// -----------------------------------------------------------------------------
+// Container
+// -----------------------------------------------------------------------------
+// Centered container with responsive max-widths and horizontal padding.
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+
+  @include breakpoint('md') {
+    max-width: map-get($container-max-widths, 'md');
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+
+  @include breakpoint('lg') {
+    max-width: map-get($container-max-widths, 'lg');
+  }
+
+  @include breakpoint('xl') {
+    max-width: map-get($container-max-widths, 'xl');
+  }
+}
+
+// Fluid container (full width with padding, no max-width)
+.container-fluid {
+  width: 100%;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+
+  @include breakpoint('md') {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+// Narrow container for text-heavy content (max 65ch equivalent)
+.container-narrow {
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+
+  @include breakpoint('md') {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Grid
+// -----------------------------------------------------------------------------
+// CSS Grid-based 12-column layout. Use .gap-{n} classes from _spacing.scss
+// for grid gaps, or set gap directly.
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+}
+
+// Default grid gap (can be overridden with .gap-{n} utility classes)
+.grid-default {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  gap: $grid-gutter;
+}
+
+// -----------------------------------------------------------------------------
+// Column Span Classes (Default / Mobile-first)
+// -----------------------------------------------------------------------------
+// .col-{n} spans n of 12 columns at all viewport sizes.
+
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    grid-column: span #{$i};
+  }
+}
+
+// Full-width column
+.col-full {
+  grid-column: 1 / -1;
+}
+
+// Auto-width column (content-sized)
+.col-auto {
+  grid-column: auto;
+}
+
+// -----------------------------------------------------------------------------
+// Responsive Column Span Classes
+// -----------------------------------------------------------------------------
+// .col-{breakpoint}-{n} applies the span at that breakpoint and above.
+// Example: .col-md-8 spans 8 columns from the md breakpoint (768px) upward.
+
+@each $bp-name, $bp-value in $breakpoints {
+  @media (min-width: $bp-value) {
+    @for $i from 1 through $grid-columns {
+      .col-#{$bp-name}-#{$i} {
+        grid-column: span #{$i};
+      }
+    }
+
+    .col-#{$bp-name}-full {
+      grid-column: 1 / -1;
+    }
+
+    .col-#{$bp-name}-auto {
+      grid-column: auto;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Column Start Classes
+// -----------------------------------------------------------------------------
+// .col-start-{n} sets the starting grid line (1-based).
+
+@for $i from 1 through $grid-columns {
+  .col-start-#{$i} {
+    grid-column-start: #{$i};
+  }
+}
+
+@each $bp-name, $bp-value in $breakpoints {
+  @media (min-width: $bp-value) {
+    @for $i from 1 through $grid-columns {
+      .col-start-#{$bp-name}-#{$i} {
+        grid-column-start: #{$i};
+      }
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Row Span Classes
+// -----------------------------------------------------------------------------
+
+@for $i from 1 through 6 {
+  .row-span-#{$i} {
+    grid-row: span #{$i};
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Grid Alignment Utilities
+// -----------------------------------------------------------------------------
+
+// Align items within grid cells
+.items-start   { align-items: start; }
+.items-center  { align-items: center; }
+.items-end     { align-items: end; }
+.items-stretch { align-items: stretch; }
+
+// Justify items within grid cells
+.justify-start   { justify-items: start; }
+.justify-center  { justify-items: center; }
+.justify-end     { justify-items: end; }
+.justify-stretch { justify-items: stretch; }
+
+// Align content (multi-row grids)
+.content-start   { align-content: start; }
+.content-center  { align-content: center; }
+.content-end     { align-content: end; }
+.content-between { align-content: space-between; }
+.content-around  { align-content: space-around; }
+
+// Self-alignment (individual grid items)
+.self-start   { align-self: start; }
+.self-center  { align-self: center; }
+.self-end     { align-self: end; }
+.self-stretch { align-self: stretch; }
+
+// Justify self (individual grid items)
+.justify-self-start   { justify-self: start; }
+.justify-self-center  { justify-self: center; }
+.justify-self-end     { justify-self: end; }
+.justify-self-stretch { justify-self: stretch; }
+
+// -----------------------------------------------------------------------------
+// Common Layout Patterns
+// -----------------------------------------------------------------------------
+
+// Two-column layout (main + sidebar)
+.grid-layout-main-sidebar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $grid-gutter;
+
+  @include breakpoint('md') {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+// Three-column equal layout
+.grid-layout-thirds {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $grid-gutter;
+
+  @include breakpoint('md') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Two-column equal layout
+.grid-layout-halves {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $grid-gutter;
+
+  @include breakpoint('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// Four-column layout (cards, grids)
+.grid-layout-quarters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $grid-gutter;
+
+  @include breakpoint('sm') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint('lg') {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

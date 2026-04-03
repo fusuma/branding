@@ -1,0 +1,322 @@
+// =============================================================================
+// Flavio Fusuma — CSS Reset
+// =============================================================================
+// A minimal, modern CSS reset that establishes a consistent baseline across
+// browsers without being overly aggressive. Based on modern reset best
+// practices (Andy Bell, Josh Comeau, Sindre Sorhus).
+//
+// Principles:
+//   - Remove default margins and padding where they cause layout issues
+//   - Establish box-sizing: border-box globally
+//   - Normalize form elements and interactive defaults
+//   - Set sensible typographic defaults
+//   - Respect user preferences (reduced motion, color scheme)
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Box Sizing
+// -----------------------------------------------------------------------------
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// -----------------------------------------------------------------------------
+// Remove Default Margins
+// -----------------------------------------------------------------------------
+
+* {
+  margin: 0;
+}
+
+// -----------------------------------------------------------------------------
+// Document Defaults
+// -----------------------------------------------------------------------------
+
+html {
+  // Prevent font size inflation on mobile
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+
+  // Smooth scrolling (respects reduced-motion preference below)
+  scroll-behavior: smooth;
+
+  // Use a readable tab size
+  tab-size: 4;
+}
+
+// Remove smooth scrolling for users who prefer reduced motion
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Body Defaults
+// -----------------------------------------------------------------------------
+
+body {
+  min-height: 100vh;
+  line-height: var(--line-height-normal, 1.5);
+  font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
+  font-size: var(--font-size-base, 1rem);
+  color: var(--color-text-primary, #0F172A);
+  background-color: var(--color-bg-primary, #FFFFFF);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+// -----------------------------------------------------------------------------
+// Typography Resets
+// -----------------------------------------------------------------------------
+
+// Headings and body elements with default font sizes get reset
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+// Balanced text wrapping for headings
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+// Improved text wrapping for paragraphs
+p {
+  text-wrap: pretty;
+}
+
+// Remove list styles on elements with a list role (resets <ul>, <ol> with role)
+:where(ul, ol)[role='list'] {
+  list-style: none;
+  padding: 0;
+}
+
+// Prevent orphans in paragraphs and list items
+p, li {
+  orphans: 2;
+  widows: 2;
+}
+
+// Sensible defaults for links
+a {
+  color: inherit;
+  text-decoration-skip-ink: auto;
+}
+
+// Ensure bold text is actually bold
+b, strong {
+  font-weight: bolder;
+}
+
+// Correct font size for code elements
+code, kbd, samp, pre {
+  font-family: var(--font-family-mono, ui-monospace, monospace);
+  font-size: 1em;
+}
+
+// Small text
+small {
+  font-size: 80%;
+}
+
+// Prevent sub and sup from affecting line height
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub { bottom: -0.25em; }
+sup { top: -0.5em; }
+
+// -----------------------------------------------------------------------------
+// Media Elements
+// -----------------------------------------------------------------------------
+
+// Make media elements responsive by default
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+// Maintain intrinsic aspect ratio
+img, video {
+  height: auto;
+}
+
+// Remove the border on images inside links in IE 10
+img {
+  border-style: none;
+}
+
+// -----------------------------------------------------------------------------
+// Form Elements
+// -----------------------------------------------------------------------------
+
+// Inherit fonts for form controls
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+// Remove default button styles
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+// Remove the inner border and padding in Firefox
+::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+// Restore the focus outline removed by the previous rule
+:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+// Correct the text wrapping in Edge and IE
+legend {
+  padding: 0;
+  display: table;
+  max-width: 100%;
+  white-space: normal;
+}
+
+// Remove default textarea resize (allow vertical only)
+textarea {
+  resize: vertical;
+}
+
+// Correct the inability to style clickable types in iOS and Safari
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+  appearance: button;
+}
+
+// Correct the cursor style of increment and decrement buttons in Chrome
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+// Correct search input appearance in Chrome and Safari
+[type='search'] {
+  -webkit-appearance: textfield;
+  appearance: textfield;
+  outline-offset: -2px;
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+// Correct file input button appearance in Chrome and Safari
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+// -----------------------------------------------------------------------------
+// Interactive Elements
+// -----------------------------------------------------------------------------
+
+// Add the correct display in Edge, IE 10+, and Firefox
+details {
+  display: block;
+}
+
+// Add the correct display in all browsers
+summary {
+  display: list-item;
+  cursor: pointer;
+}
+
+// Remove the gray background on active links in IE 10
+a:active {
+  background-color: transparent;
+}
+
+// Add the correct styles for dialog
+dialog {
+  background-color: var(--color-bg-primary, #FFFFFF);
+  border: none;
+  padding: 0;
+}
+
+// Allow dialog backdrop styling
+dialog::backdrop {
+  background-color: var(--color-bg-overlay, rgba(15, 23, 42, 0.5));
+}
+
+// -----------------------------------------------------------------------------
+// Table Resets
+// -----------------------------------------------------------------------------
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// -----------------------------------------------------------------------------
+// Misc
+// -----------------------------------------------------------------------------
+
+// Remove the outline on focused elements that are not keyboard-focused
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Style focus-visible for keyboard navigation
+:focus-visible {
+  outline: 2px solid var(--color-border-focus, #3B82F6);
+  outline-offset: 2px;
+}
+
+// Add the correct box sizing in Firefox and show the overflow in Edge and IE
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+  border: none;
+  border-top: 1px solid var(--color-border-primary, #E2E8F0);
+}
+
+// Hidden attribute support
+[hidden] {
+  display: none !important;
+}
+
+// Screen-reader only utility (available globally after reset)
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

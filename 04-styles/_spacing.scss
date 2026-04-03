@@ -1,0 +1,193 @@
+// =============================================================================
+// Flavio Fusuma — Spacing Utilities
+// =============================================================================
+// Margin, padding, and gap utility classes based on the 8px spacing system.
+// The scale uses 4px as a sub-grid unit with 8px as the primary base unit.
+//
+// Naming convention:
+//   .m-{n}   — margin (all sides)
+//   .mx-{n}  — margin left + right
+//   .my-{n}  — margin top + bottom
+//   .mt-{n}  — margin top
+//   .mr-{n}  — margin right
+//   .mb-{n}  — margin bottom
+//   .ml-{n}  — margin left
+//   .p-{n}   — padding (all sides)
+//   .px-{n}  — padding left + right
+//   .py-{n}  — padding top + bottom
+//   .pt-{n}  — padding top
+//   .pr-{n}  — padding right
+//   .pb-{n}  — padding bottom
+//   .pl-{n}  — padding left
+//   .gap-{n} — gap (flexbox and grid)
+//
+// Where {n} maps to the spacing scale:
+//   0=0, 1=4px, 2=8px, 3=12px, 4=16px, 5=20px, 6=24px,
+//   8=32px, 10=40px, 12=48px, 16=64px, 20=80px, 24=96px
+// =============================================================================
+
+@use 'variables' as *;
+
+// -----------------------------------------------------------------------------
+// Spacing Scale Map (subset for utility generation)
+// -----------------------------------------------------------------------------
+// We generate utilities for the most commonly used spacing values.
+// The full scale (up to 96) is available via custom properties.
+
+$utility-spacing: (
+  0: var(--space-0),
+  1: var(--space-1),
+  2: var(--space-2),
+  3: var(--space-3),
+  4: var(--space-4),
+  5: var(--space-5),
+  6: var(--space-6),
+  8: var(--space-8),
+  10: var(--space-10),
+  12: var(--space-12),
+  16: var(--space-16),
+  20: var(--space-20),
+  24: var(--space-24),
+);
+
+// Additional special values
+$spacing-auto: auto;
+
+// -----------------------------------------------------------------------------
+// Margin Utilities
+// -----------------------------------------------------------------------------
+
+@each $key, $value in $utility-spacing {
+  // All sides
+  .m-#{$key} { margin: #{$value}; }
+
+  // Horizontal (left + right)
+  .mx-#{$key} {
+    margin-left: #{$value};
+    margin-right: #{$value};
+  }
+
+  // Vertical (top + bottom)
+  .my-#{$key} {
+    margin-top: #{$value};
+    margin-bottom: #{$value};
+  }
+
+  // Individual sides
+  .mt-#{$key} { margin-top: #{$value}; }
+  .mr-#{$key} { margin-right: #{$value}; }
+  .mb-#{$key} { margin-bottom: #{$value}; }
+  .ml-#{$key} { margin-left: #{$value}; }
+}
+
+// Auto margin utilities (for centering and alignment)
+.m-auto  { margin: auto; }
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.mt-auto { margin-top: auto; }
+.mr-auto { margin-right: auto; }
+.mb-auto { margin-bottom: auto; }
+.ml-auto { margin-left: auto; }
+
+// -----------------------------------------------------------------------------
+// Padding Utilities
+// -----------------------------------------------------------------------------
+
+@each $key, $value in $utility-spacing {
+  // All sides
+  .p-#{$key} { padding: #{$value}; }
+
+  // Horizontal (left + right)
+  .px-#{$key} {
+    padding-left: #{$value};
+    padding-right: #{$value};
+  }
+
+  // Vertical (top + bottom)
+  .py-#{$key} {
+    padding-top: #{$value};
+    padding-bottom: #{$value};
+  }
+
+  // Individual sides
+  .pt-#{$key} { padding-top: #{$value}; }
+  .pr-#{$key} { padding-right: #{$value}; }
+  .pb-#{$key} { padding-bottom: #{$value}; }
+  .pl-#{$key} { padding-left: #{$value}; }
+}
+
+// -----------------------------------------------------------------------------
+// Gap Utilities (Flexbox & Grid)
+// -----------------------------------------------------------------------------
+
+@each $key, $value in $utility-spacing {
+  .gap-#{$key}     { gap: #{$value}; }
+  .gap-x-#{$key}   { column-gap: #{$value}; }
+  .gap-y-#{$key}   { row-gap: #{$value}; }
+}
+
+// -----------------------------------------------------------------------------
+// Responsive Spacing Utilities
+// -----------------------------------------------------------------------------
+// Generate responsive variants for the most common spacing values.
+// These follow the pattern: .{breakpoint}\:{property}-{value}
+// Example: .md\:p-4 applies padding: 16px at the md breakpoint and above.
+
+$responsive-spacing-subset: (0, 2, 4, 6, 8, 12, 16, 24);
+
+@each $bp-name, $bp-value in $breakpoints {
+  @media (min-width: $bp-value) {
+    @each $key in $responsive-spacing-subset {
+      $value: map-get($utility-spacing, $key);
+
+      @if $value {
+        // Margin
+        .#{$bp-name}\:m-#{$key}  { margin: #{$value}; }
+        .#{$bp-name}\:mx-#{$key} {
+          margin-left: #{$value};
+          margin-right: #{$value};
+        }
+        .#{$bp-name}\:my-#{$key} {
+          margin-top: #{$value};
+          margin-bottom: #{$value};
+        }
+        .#{$bp-name}\:mt-#{$key} { margin-top: #{$value}; }
+        .#{$bp-name}\:mr-#{$key} { margin-right: #{$value}; }
+        .#{$bp-name}\:mb-#{$key} { margin-bottom: #{$value}; }
+        .#{$bp-name}\:ml-#{$key} { margin-left: #{$value}; }
+
+        // Padding
+        .#{$bp-name}\:p-#{$key}  { padding: #{$value}; }
+        .#{$bp-name}\:px-#{$key} {
+          padding-left: #{$value};
+          padding-right: #{$value};
+        }
+        .#{$bp-name}\:py-#{$key} {
+          padding-top: #{$value};
+          padding-bottom: #{$value};
+        }
+        .#{$bp-name}\:pt-#{$key} { padding-top: #{$value}; }
+        .#{$bp-name}\:pr-#{$key} { padding-right: #{$value}; }
+        .#{$bp-name}\:pb-#{$key} { padding-bottom: #{$value}; }
+        .#{$bp-name}\:pl-#{$key} { padding-left: #{$value}; }
+
+        // Gap
+        .#{$bp-name}\:gap-#{$key} { gap: #{$value}; }
+      }
+    }
+
+    // Responsive auto margins
+    .#{$bp-name}\:mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .#{$bp-name}\:ml-auto { margin-left: auto; }
+    .#{$bp-name}\:mr-auto { margin-right: auto; }
+  }
+}

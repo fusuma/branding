@@ -1,0 +1,41 @@
+// =============================================================================
+// Flavio Fusuma — Main Stylesheet Entry Point
+// =============================================================================
+// Import order matters. Files are loaded in dependency order:
+//
+//   1. Variables    — CSS custom properties and SCSS variables (no output)
+//   2. Reset        — Baseline normalization (outputs CSS)
+//   3. Colors       — Color utility classes + dark mode overrides
+//   4. Typography   — Type scale and font utilities
+//   5. Spacing      — Margin, padding, and gap utilities
+//   6. Grid         — Container, grid, and column system
+//
+// To use in your project:
+//   @use 'main' as *;
+//   — or —
+//   @import 'main';
+//
+// To import individual modules:
+//   @use 'variables' as *;
+//   @use 'typography';
+// =============================================================================
+
+// Layer 1: Design tokens as CSS custom properties + SCSS variables and mixins.
+// This must come first — all other partials depend on it.
+@use 'variables';
+
+// Layer 2: CSS reset. Establishes a consistent baseline across browsers.
+// Must come before utility classes to avoid specificity conflicts.
+@use 'reset';
+
+// Layer 3: Color system. Semantic color utilities and dark mode overrides.
+@use 'colors';
+
+// Layer 4: Typography. Type scale classes, font families, weights, alignment.
+@use 'typography';
+
+// Layer 5: Spacing. Margin, padding, and gap utility classes.
+@use 'spacing';
+
+// Layer 6: Grid system. Container, 12-column grid, column spans, layouts.
+@use 'grid';

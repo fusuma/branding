@@ -1,0 +1,351 @@
+// =============================================================================
+// Flavio Fusuma — Typography Utilities
+// =============================================================================
+// Type scale classes, font family utilities, weight utilities, and alignment.
+// All values reference CSS custom properties from _variables.scss.
+//
+// Classes map to the semantic typography tokens defined in:
+//   03-design-tokens/semantic/typography.tokens.json
+// =============================================================================
+
+@use 'variables' as *;
+
+// -----------------------------------------------------------------------------
+// Font Family Utilities
+// -----------------------------------------------------------------------------
+
+.font-sans { font-family: var(--font-family-sans); }
+.font-mono { font-family: var(--font-family-mono); }
+
+// -----------------------------------------------------------------------------
+// Font Weight Utilities
+// -----------------------------------------------------------------------------
+
+.font-weight-thin       { font-weight: var(--font-weight-thin); }
+.font-weight-extralight { font-weight: var(--font-weight-extralight); }
+.font-weight-light      { font-weight: var(--font-weight-light); }
+.font-weight-regular    { font-weight: var(--font-weight-regular); }
+.font-weight-medium     { font-weight: var(--font-weight-medium); }
+.font-weight-semibold   { font-weight: var(--font-weight-semibold); }
+.font-weight-bold       { font-weight: var(--font-weight-bold); }
+.font-weight-extrabold  { font-weight: var(--font-weight-extrabold); }
+.font-weight-black      { font-weight: var(--font-weight-black); }
+
+// -----------------------------------------------------------------------------
+// Text Alignment Utilities
+// -----------------------------------------------------------------------------
+
+.text-left    { text-align: left; }
+.text-center  { text-align: center; }
+.text-right   { text-align: right; }
+.text-justify { text-align: justify; }
+
+// Responsive alignment
+@each $bp-name, $bp-value in $breakpoints {
+  @media (min-width: $bp-value) {
+    .text-#{$bp-name}-left    { text-align: left; }
+    .text-#{$bp-name}-center  { text-align: center; }
+    .text-#{$bp-name}-right   { text-align: right; }
+    .text-#{$bp-name}-justify { text-align: justify; }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Text Transform & Decoration Utilities
+// -----------------------------------------------------------------------------
+
+.text-uppercase  { text-transform: uppercase; }
+.text-lowercase  { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+.text-normal     { text-transform: none; }
+.text-underline  { text-decoration: underline; }
+.text-no-underline { text-decoration: none; }
+
+// -----------------------------------------------------------------------------
+// Type Scale — Display Sizes
+// -----------------------------------------------------------------------------
+// Display styles are reserved for hero headlines and major page headers.
+// They use tighter tracking and reduced line-height for visual impact.
+
+.text-display-xl {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-8xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-none);
+  letter-spacing: var(--letter-spacing-tighter);
+}
+
+.text-display-lg {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-7xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-none);
+  letter-spacing: var(--letter-spacing-tighter);
+}
+
+.text-display-md {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-6xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-none);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.text-display-sm {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-none);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+// -----------------------------------------------------------------------------
+// Type Scale — Heading Sizes
+// -----------------------------------------------------------------------------
+
+.text-h1 {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.text-h2 {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.text-h3 {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.text-h4 {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.text-h5 {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.text-h6 {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+// -----------------------------------------------------------------------------
+// Type Scale — Body Sizes
+// -----------------------------------------------------------------------------
+
+.text-body-xl {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.text-body-lg {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.text-body-base {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.text-body-sm {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.text-body-xs {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.text-body-strong {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+// -----------------------------------------------------------------------------
+// Type Scale — Label Sizes
+// -----------------------------------------------------------------------------
+
+.text-label-lg {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.text-label-base {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.text-label-sm {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+// -----------------------------------------------------------------------------
+// Type Scale — Caption, Overline, Code
+// -----------------------------------------------------------------------------
+
+.text-caption {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.text-caption-sm {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.text-overline {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-widest);
+  text-transform: uppercase;
+}
+
+.text-code-block {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.text-code-inline {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+// -----------------------------------------------------------------------------
+// Responsive Font Size Behavior
+// -----------------------------------------------------------------------------
+// Display and heading sizes scale down on smaller viewports.
+// This uses clamp() for fluid typography between breakpoints.
+
+@media (max-width: 767px) {
+  .text-display-xl {
+    font-size: clamp(var(--font-size-5xl), 8vw, var(--font-size-8xl));
+  }
+
+  .text-display-lg {
+    font-size: clamp(var(--font-size-4xl), 7vw, var(--font-size-7xl));
+  }
+
+  .text-display-md {
+    font-size: clamp(var(--font-size-4xl), 6vw, var(--font-size-6xl));
+  }
+
+  .text-display-sm {
+    font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
+  }
+
+  .text-h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .text-h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .text-h3 {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .text-display-xl {
+    font-size: var(--font-size-7xl);
+  }
+
+  .text-display-lg {
+    font-size: var(--font-size-6xl);
+  }
+
+  .text-display-md {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Text Truncation Utilities
+// -----------------------------------------------------------------------------
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.text-line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
