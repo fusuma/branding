@@ -1,0 +1,20 @@
+{
+  "borderRadius": {
+    "$description": "Border radius scale",
+    "none": { "$value": "0px", "$type": "dimension" },
+    "sm": { "$value": "4px", "$type": "dimension" },
+    "md": { "$value": "6px", "$type": "dimension" },
+    "base": { "$value": "8px", "$type": "dimension" },
+    "lg": { "$value": "12px", "$type": "dimension" },
+    "xl": { "$value": "16px", "$type": "dimension" },
+    "full": { "$value": "9999px", "$type": "dimension" }
+  },
+  "borderWidth": {
+    "$description": "Border width scale",
+    "0": { "$value": "0px", "$type": "dimension" },
+    "1": { "$value": "1px", "$type": "dimension" },
+    "2": { "$value": "2px", "$type": "dimension" },
+    "4": { "$value": "4px", "$type": "dimension" },
+    "8": { "$value": "8px", "$type": "dimension" }
+  }
+}

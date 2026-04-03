@@ -1,0 +1,47 @@
+{
+  "duration": {
+    "$description": "Animation and transition durations",
+    "instant": { "$value": "0ms", "$type": "duration" },
+    "fastest": { "$value": "50ms", "$type": "duration" },
+    "faster": { "$value": "100ms", "$type": "duration" },
+    "fast": { "$value": "150ms", "$type": "duration" },
+    "normal": { "$value": "200ms", "$type": "duration" },
+    "slow": { "$value": "300ms", "$type": "duration" },
+    "slower": { "$value": "400ms", "$type": "duration" },
+    "slowest": { "$value": "500ms", "$type": "duration" },
+    "deliberate": { "$value": "700ms", "$type": "duration" }
+  },
+  "easing": {
+    "$description": "Cubic bezier easing curves",
+    "linear": {
+      "$value": [0, 0, 1, 1],
+      "$type": "cubicBezier",
+      "$description": "No easing, constant speed"
+    },
+    "ease-in": {
+      "$value": [0.4, 0, 1, 1],
+      "$type": "cubicBezier",
+      "$description": "Accelerating from zero velocity"
+    },
+    "ease-out": {
+      "$value": [0, 0, 0.2, 1],
+      "$type": "cubicBezier",
+      "$description": "Decelerating to zero velocity"
+    },
+    "ease-in-out": {
+      "$value": [0.4, 0, 0.2, 1],
+      "$type": "cubicBezier",
+      "$description": "Accelerating then decelerating"
+    },
+    "ease-bounce": {
+      "$value": [0.34, 1.56, 0.64, 1],
+      "$type": "cubicBezier",
+      "$description": "Overshoots then settles, playful interactions"
+    },
+    "ease-spring": {
+      "$value": [0.22, 1.2, 0.36, 1],
+      "$type": "cubicBezier",
+      "$description": "Spring-like deceleration"
+    }
+  }
+}

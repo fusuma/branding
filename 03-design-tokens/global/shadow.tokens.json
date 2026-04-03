@@ -1,0 +1,118 @@
+{
+  "shadow": {
+    "$description": "Elevation shadow scale with 5 levels",
+    "elevation-1": {
+      "$value": [
+        {
+          "color": "#0F172A0D",
+          "offsetX": "0px",
+          "offsetY": "1px",
+          "blur": "2px",
+          "spread": "0px"
+        },
+        {
+          "color": "#0F172A0A",
+          "offsetX": "0px",
+          "offsetY": "1px",
+          "blur": "3px",
+          "spread": "0px"
+        }
+      ],
+      "$type": "shadow",
+      "$description": "Subtle shadow for cards and subtle separation"
+    },
+    "elevation-2": {
+      "$value": [
+        {
+          "color": "#0F172A0D",
+          "offsetX": "0px",
+          "offsetY": "2px",
+          "blur": "4px",
+          "spread": "-1px"
+        },
+        {
+          "color": "#0F172A0A",
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "6px",
+          "spread": "-1px"
+        }
+      ],
+      "$type": "shadow",
+      "$description": "Low shadow for raised elements"
+    },
+    "elevation-3": {
+      "$value": [
+        {
+          "color": "#0F172A0D",
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "6px",
+          "spread": "-2px"
+        },
+        {
+          "color": "#0F172A0A",
+          "offsetX": "0px",
+          "offsetY": "10px",
+          "blur": "15px",
+          "spread": "-3px"
+        }
+      ],
+      "$type": "shadow",
+      "$description": "Medium shadow for dropdowns and popovers"
+    },
+    "elevation-4": {
+      "$value": [
+        {
+          "color": "#0F172A0D",
+          "offsetX": "0px",
+          "offsetY": "10px",
+          "blur": "15px",
+          "spread": "-3px"
+        },
+        {
+          "color": "#0F172A0A",
+          "offsetX": "0px",
+          "offsetY": "20px",
+          "blur": "25px",
+          "spread": "-5px"
+        }
+      ],
+      "$type": "shadow",
+      "$description": "High shadow for modals and dialogs"
+    },
+    "elevation-5": {
+      "$value": [
+        {
+          "color": "#0F172A14",
+          "offsetX": "0px",
+          "offsetY": "20px",
+          "blur": "25px",
+          "spread": "-5px"
+        },
+        {
+          "color": "#0F172A0A",
+          "offsetX": "0px",
+          "offsetY": "40px",
+          "blur": "50px",
+          "spread": "-12px"
+        }
+      ],
+      "$type": "shadow",
+      "$description": "Highest shadow for toasts and floating elements"
+    },
+    "none": {
+      "$value": [
+        {
+          "color": "#00000000",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "0px",
+          "spread": "0px"
+        }
+      ],
+      "$type": "shadow",
+      "$description": "No shadow"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "color": {
+    "$description": "Semantic color aliases referencing global primitives",
+    "background": {
+      "primary": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Default page background" },
+      "secondary": { "$value": "{color.neutral.50}", "$type": "color", "$description": "Subtle section background" },
+      "tertiary": { "$value": "{color.neutral.100}", "$type": "color", "$description": "Inset or recessed background" },
+      "inverse": { "$value": "{color.neutral.900}", "$type": "color", "$description": "Inverted background" },
+      "brand": { "$value": "{color.blue.800}", "$type": "color", "$description": "Brand-colored background" },
+      "brand-subtle": { "$value": "{color.blue.50}", "$type": "color", "$description": "Subtle brand tint" },
+      "accent": { "$value": "{color.amber.500}", "$type": "color", "$description": "Accent-colored background" },
+      "accent-subtle": { "$value": "{color.amber.50}", "$type": "color", "$description": "Subtle accent tint" },
+      "success": { "$value": "{color.green.50}", "$type": "color" },
+      "warning": { "$value": "{color.amber.50}", "$type": "color" },
+      "error": { "$value": "{color.red.50}", "$type": "color" },
+      "info": { "$value": "{color.blue.50}", "$type": "color" },
+      "disabled": { "$value": "{color.neutral.100}", "$type": "color" },
+      "overlay": { "$value": "#0F172A80", "$type": "color", "$description": "Modal overlay at 50% opacity" }
+    },
+    "text": {
+      "primary": { "$value": "{color.neutral.900}", "$type": "color", "$description": "Primary body text" },
+      "secondary": { "$value": "{color.neutral.600}", "$type": "color", "$description": "Secondary/supporting text" },
+      "tertiary": { "$value": "{color.neutral.400}", "$type": "color", "$description": "Placeholder and hint text" },
+      "inverse": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Text on dark backgrounds" },
+      "brand": { "$value": "{color.blue.800}", "$type": "color", "$description": "Brand-colored text" },
+      "accent": { "$value": "{color.amber.600}", "$type": "color", "$description": "Accent-colored text" },
+      "link": { "$value": "{color.blue.600}", "$type": "color", "$description": "Hyperlink text" },
+      "link-hover": { "$value": "{color.blue.800}", "$type": "color", "$description": "Hovered hyperlink text" },
+      "success": { "$value": "{color.green.700}", "$type": "color" },
+      "warning": { "$value": "{color.amber.700}", "$type": "color" },
+      "error": { "$value": "{color.red.700}", "$type": "color" },
+      "info": { "$value": "{color.blue.700}", "$type": "color" },
+      "disabled": { "$value": "{color.neutral.300}", "$type": "color" },
+      "on-brand": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Text on brand background" },
+      "on-accent": { "$value": "{color.neutral.950}", "$type": "color", "$description": "Text on accent background" }
+    },
+    "border": {
+      "primary": { "$value": "{color.neutral.200}", "$type": "color", "$description": "Default border" },
+      "secondary": { "$value": "{color.neutral.300}", "$type": "color", "$description": "Emphasized border" },
+      "tertiary": { "$value": "{color.neutral.100}", "$type": "color", "$description": "Subtle divider" },
+      "brand": { "$value": "{color.blue.800}", "$type": "color" },
+      "accent": { "$value": "{color.amber.500}", "$type": "color" },
+      "focus": { "$value": "{color.blue.500}", "$type": "color", "$description": "Focus ring color" },
+      "success": { "$value": "{color.green.500}", "$type": "color" },
+      "warning": { "$value": "{color.amber.500}", "$type": "color" },
+      "error": { "$value": "{color.red.500}", "$type": "color" },
+      "info": { "$value": "{color.blue.500}", "$type": "color" },
+      "disabled": { "$value": "{color.neutral.200}", "$type": "color" },
+      "inverse": { "$value": "{color.neutral.700}", "$type": "color" }
+    },
+    "icon": {
+      "primary": { "$value": "{color.neutral.700}", "$type": "color" },
+      "secondary": { "$value": "{color.neutral.400}", "$type": "color" },
+      "brand": { "$value": "{color.blue.800}", "$type": "color" },
+      "accent": { "$value": "{color.amber.500}", "$type": "color" },
+      "inverse": { "$value": "{color.neutral.0}", "$type": "color" },
+      "success": { "$value": "{color.green.500}", "$type": "color" },
+      "warning": { "$value": "{color.amber.500}", "$type": "color" },
+      "error": { "$value": "{color.red.500}", "$type": "color" },
+      "info": { "$value": "{color.blue.500}", "$type": "color" },
+      "disabled": { "$value": "{color.neutral.300}", "$type": "color" }
+    },
+    "interactive": {
+      "primary": { "$value": "{color.blue.800}", "$type": "color", "$description": "Primary interactive color" },
+      "primary-hover": { "$value": "{color.blue.900}", "$type": "color" },
+      "primary-active": { "$value": "{color.blue.950}", "$type": "color" },
+      "secondary": { "$value": "{color.neutral.100}", "$type": "color" },
+      "secondary-hover": { "$value": "{color.neutral.200}", "$type": "color" },
+      "secondary-active": { "$value": "{color.neutral.300}", "$type": "color" },
+      "accent": { "$value": "{color.amber.500}", "$type": "color" },
+      "accent-hover": { "$value": "{color.amber.600}", "$type": "color" },
+      "accent-active": { "$value": "{color.amber.700}", "$type": "color" },
+      "destructive": { "$value": "{color.red.600}", "$type": "color" },
+      "destructive-hover": { "$value": "{color.red.700}", "$type": "color" },
+      "destructive-active": { "$value": "{color.red.800}", "$type": "color" }
+    }
+  }
+}
